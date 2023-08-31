@@ -20,33 +20,86 @@ Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzion
 
 const userChoise = prompt('Scegli : pari o dispari');
 
+if (userChoise !== 'pari' && userChoise !== 'dispari') {
+    
+    alert('inserisci solo pari o dispari');
+    location.reload();
+}
+
 console.log(userChoise);
 
 // chiedi all'utente un numero da 1 a 5
 
-const userNumber = Number(prompt('inserisci un numero da 1 a 5'));
+const userNumber = Number(prompt('scegli un numero da 1 a 5'));
+
+if (isNaN(userNumber)) {
+    alert('inserisci solo un numero da 1 a 5');
+    location.reload();
+}
 
 console.log(userNumber);
 
-// crea un numero random da 1 a 5 per il pc
+// crea un numero random da 1 a 5 per il pc con una function
 
-const pcNumber = Math.floor(Math.random() * 5 + 1);
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+const pcNumber = randomNumber(1, 5);
 
 console.log(pcNumber);
 
-// somma i due numeri
+// somma i due numeri usando una function
 
-const sommaNumeri = userNumber + pcNumber;
+function somma(num1, num2) {
+    
+    return num1 + num2;
+}
+
+const sommaNumeri = somma(userNumber, pcNumber);
 
 console.log(sommaNumeri);
 
 // stabilisci se la somma è pari o dispari
 
-if (sommaNumeri % 2 === 0) {
-    console.log('pari');
-} else {
-    console.log('dispari');
+function isEven(number_result) {
+    if (sommaNumeri % 2 === 0) {
+        return true;
+    }
+
+    return false;
 }
 
-// stampa il vincitore
+const result = isEven(sommaNumeri);
+
+let theWinnerIs = '';
+
+if (result) {
+    theWinnerIs = 'pari';
+} else {
+    theWinnerIs = 'dispari';
+}
+
+console.log(theWinnerIs);
+
+// decreta e stampa il vincitore
+
+const h1Element = document.querySelector('h1');
+
+let finalResult = ''
+
+if (userChoise === theWinnerIs) {
+    
+    let finalResult = 'USER WIN';
+    console.log(finalResult);
+    h1Element.innerHTML = finalResult;
+
+
+} else {
+    let finalResult = 'USER LOOSE';
+    console.log(finalResult);
+    h1Element.innerHTML = finalResult;
+
+}
+
 
