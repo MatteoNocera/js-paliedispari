@@ -19,7 +19,7 @@ const userWord = 'ciao' //prompt('type your word');
 // Creare una funzione per capire se la parola inserita è palindroma
 
 
-for (let i = 0; i < userWord.length; i++) {
+/* for (let i = 0; i < userWord.length; i++) {
     const letter = userWord[i];
     console.log(letter);
 
@@ -35,6 +35,23 @@ for (let i = userWord.length - 1; i >= 0; i--) {
     console.log(userWord.length);
 
 }
+ */
 
 
+function divideWord(word) {
 
+    for (let i = 0; i < userWord.length / 2; i++) {
+        const letter = userWord[i];
+        console.log(letter);
+        
+    }
+
+    for (let i = userWord.length - 1; i >= userWord.length / 2; i--) {
+        const letter = userWord[i];
+        console.log(letter);
+        
+    }
+
+}
+
+const result = divideWord(userWord)
