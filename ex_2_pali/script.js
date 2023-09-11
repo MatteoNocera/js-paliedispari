@@ -62,7 +62,7 @@ const result = divideWord(userWord) */
 
 function check(user_Word) {
 
-    let verify = false;
+    let verify = true;
 
     for (let i = 0; i < userWord.length; i++) {
 
@@ -70,11 +70,11 @@ function check(user_Word) {
 
         let letter2 = userWord[userWord.length - (i + 1)];
 
-        //console.log(letter1 + letter2);
+        console.log(letter1 + letter2);
 
-        if (letter1 == letter2) {
+        if (letter1 !== letter2) {
 
-            verify = true;
+            verify = false;
         }
     }
 
